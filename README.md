@@ -11,7 +11,7 @@ Simply run the budgeting.py script!  As of this writing (19-September 2019), it 
 - `-p` for "Paycheck" dollar amount.
 - `-f` for "File".  This file 
 
-*Example:* `python Budgeting.py -p 3500 -f expense_15th`
+*Example:* `python Budgeting.py -p 1100 -f sample_expenses`
 
 Sample expense file - new-line delimited as "Expense_name", $Dollar_amount
 ```
