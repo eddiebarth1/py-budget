@@ -28,7 +28,7 @@ Rent, 750
 ### Example Output From Above Example:
 ```
 ╭─eddie@eddie-manjaro ~/repos/py-budget  ‹master*› 
-╰─➤  python Budgeting.py -p 1100 -f sample_expenses
+╰─➤  python Budgeting.py -p 1100 -f sample_expenses 
 
 Total pay for this period is: $1100.0 
 
@@ -41,7 +41,7 @@ Your expenses for this period are:
  'Hulu': 59.99,
  'Rent': 750.0}
 
- Total bill payments = $1095.8600000000001 
+ Total bill payments = $1095.86 
 
 Your remaining balance after bills will be: 4.14
 ```

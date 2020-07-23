@@ -17,15 +17,11 @@ main_log_handler = logging.StreamHandler(sys.stdout)
 main_log_handler.setLevel(logging.DEBUG)
 
 def paycheck_retrieve():
-    check_pay = True
 
-    while check_pay == True:
-        paycheck = input("Please enter your paycheck amount: \n")
-        paycheck = float(paycheck)
-        print ("You entered: ${} \n".format(paycheck))
+    paycheck = input("Please enter your paycheck amount: \n")
+    paycheck = float(paycheck)
+    print ("You entered: ${} \n".format(paycheck))
 
-        break
-    
     return paycheck
 
 
@@ -55,17 +51,17 @@ def define_bills():
                 bills_total += amt
 
             print ("The total cost of your bills is: ${}".format(bills_total))
-            
+
             bills_add = False
 
         elif new_confirm.lower() == "y":
             continue
-        
+
         else:
             print ("That is an incorrect response.  Exiting. \n")
             for amt in bills_dict.values():
                 bills_total += amt
-            
+
             break
 
     return bills_total
@@ -83,10 +79,9 @@ def read_expenses(expense_file):
 
         file.close()
 
-    main_logger.debug("From the Expense file, we extracted: ---- {}".format(pformat(tmp_list)))
-
+    main_logger.info("From the Expense file, we extracted: ---- {}".format(pformat(tmp_list)))
     for expense in tmp_list:
-        main_logger.debug("New Expense: ---- {}".format(expense))
+        main_logger.info("New Expense: ---- {}".format(expense))
         new_exp = expense.split(",")
         recurring_expenses[new_exp[0]] = float(new_exp[1])
         main_logger.debug("Recurring Expenses Updated: ---- {}".format(pformat(recurring_expenses)))
@@ -103,9 +98,12 @@ def main():
     )
 
     parser = argparse.ArgumentParser(
-        description="This short program will give you the difference between " + \
-                "your total bill costs and whatever paycheck value you define." + \
-                "You may pass various options to streamline entering info. ")
+        description="""
+            This short program will give you the difference between
+            your total bill costs and whatever paycheck value you define
+            You may pass various options to streamline entering info.
+            """
+        )
 
     parser.add_argument(
         '--debug',
@@ -152,9 +150,9 @@ def main():
     print ("\nTotal pay for this period is: ${} \n".format(paycheck))
     print ("Your expenses for this period are: \n")
     pprint.pprint(bills_dict)
-    print ("\n Total bill payments = ${} \n".format(bills_total))
+    print ("\n Total bill payments = ${} \n".format(round(bills_total, 2)))
 
-    avail_bal = paycheck - bills_total
+    avail_bal = round(paycheck - bills_total, 2)
 
     print ("Your remaining balance after bills will be: {} \n".format(round(avail_bal, 2)))
 
