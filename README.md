@@ -9,7 +9,7 @@ Minimal Python-Based Budget App (Command Line to Start)
 Simply run the budgeting.py script!  As of this writing (19-September 2019), it takes two arguments: 
 
 - `-p` for "Paycheck" dollar amount.
-- `-f` for "File".  This file 
+- `-f` for "File".
 
 *Example:* `python Budgeting.py -p 1100 -f sample_expenses`
 
